@@ -1,0 +1,28 @@
+import os
+import py_compile
+
+def compile_python_file(file_path):
+    # Compile the Python file
+    py_compile.compile(file_path)
+
+def main():
+    # Get the Python file name from the environment variable
+    py_file = os.getenv('PYFILE')
+
+    if py_file:
+        # Check if the specified Python file exists
+        if os.path.exists(py_file):
+            # Compile the Python file
+            compile_python_file(py_file)
+
+            # Generate the output filename
+            output_file = f"{py_file}c"
+
+            print(f"Compilation successful. Output filename: {output_file}")
+        else:
+            print(f"Error: The specified Python file '{py_file}' does not exist.")
+    else:
+        print("Error: Environment variable PYFILE is not set.")
+
+if __name__ == "__main__":
+    main()
