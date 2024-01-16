@@ -6,7 +6,7 @@ if number < 0:
     number *= -1
     cntp *= -1
 lastd = number % 10
-if exe == 1:
+if cntp == 1:
     number *= -1
     lastd *= -1
 print("Last digit of {:d} is {:d}".format(number, lastd), end="")
